@@ -7,6 +7,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -40,7 +42,7 @@ export const signInWithGoogleRedirect = () =>
 export const db = getFirestore();
 
 //Storing what we get from the google auth service in the firestore db
-//On sign up we pass only email and password and should add name as additional ifo
+//On sign up we pass only email and password and should add name as additional info
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
@@ -95,3 +97,24 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   }
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => {
+  await signOut(auth);
+};
+
+//Adds an observer for changes to the user's sign-in state.
+export const onAuthStateChangedListener = (callback) => {
+  onAuthStateChanged(auth, callback);
+};
+
+/**
+ * 3 callbacks can be added
+ * onAuthStateChanged(auth, callback, errorCallback, completeCallback);
+ *
+ * {
+ * nextOrObserver: callback triggered on change,
+ * error: errorCallback,
+ * completed: completeCallback,
+ * }
+ *
+ */

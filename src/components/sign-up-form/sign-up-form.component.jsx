@@ -1,8 +1,11 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+//import { signInWithEmailAndPassword } from "firebase/auth";
+//useContext is not needed: We have the onAuthStateChangedListener instead
 import { useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
+//import { UserContext } from "../../contexts/user.context";
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -24,6 +27,9 @@ const SignUpForm = () => {
 
   console.log(formFields);
 
+  //We have the onAuthStateChangedListener instead
+  //const { setCurrentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -41,6 +47,10 @@ const SignUpForm = () => {
         password
       );
       //   console.log(response);
+
+      //We have the onAuthStateChangedListener instead
+      //setCurrentUser(user);
+
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
