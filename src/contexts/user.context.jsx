@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
         //create the userDocument if a user comes threw
         createUserDocumentFromAuth(user);
       }
-      console.log(user); //null when logged out or full user when logged in
+      //console.log(user); //null when logged out or full user when logged in
       setCurrentUser(user);
     });
 
