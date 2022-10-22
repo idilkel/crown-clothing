@@ -23,11 +23,12 @@ export const ShoppingIcon = styled(ShoppingSvg)`
 `;
 
 export const ItemCount = styled.span`
-  position: absolute;
+  position: relative;
   //font-size: 10px;
   font-size: 0.8vw;
   font-weight: bold;
-  bottom: 12px;
+  top: 0.2vh;
+  right: 1vw;
 `;
 
 //without importing the component to the styling, and leaving it in the cart-icon.component

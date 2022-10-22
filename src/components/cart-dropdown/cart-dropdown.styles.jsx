@@ -27,6 +27,8 @@ export const CartDropdownContainer = styled.div`
     width: 100%; //added
     padding: 2px; //added
     min-width: auto; //added
+    height: 5vh; //added
+    line-height: 4vh; //added
   }
 `;
 
