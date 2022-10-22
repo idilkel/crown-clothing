@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
@@ -30,7 +30,15 @@ const Navigation = () => {
   //   setCurrentUser(null);
   // };
 
-  const { isCartOpen } = useContext(CartContext);
+  const { isCartOpen, clearCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const signOutHandler = async () => {
+    await signOutUser().then(() => {
+      clearCart();
+      navigate("/auth");
+    });
+  };
 
   return (
     <Fragment>
@@ -41,7 +49,7 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink as="span" onClick={signOutUser}>
+            <NavLink as="span" onClick={signOutHandler}>
               SIGN OUT
             </NavLink>
           ) : (

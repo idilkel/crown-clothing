@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import { CartContext } from "../../contexts/cart.context";
+import { UserContext } from "../../contexts/user.context";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
@@ -14,8 +15,15 @@ import {
 const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
   const { addItemToCart } = useContext(CartContext);
+  const { currentUser } = useContext(UserContext);
 
-  const addProductToCart = () => addItemToCart(product);
+  //const addProductToCart = () => addItemToCart(product);
+
+  const addProductToCart = () => {
+    currentUser
+      ? addItemToCart(product)
+      : alert("Please sign-in to start shopping");
+  };
 
   return (
     <ProductCardContainer>

@@ -9,8 +9,10 @@ export const BackgroundImage = styled.div`
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 export const Body = styled.div`
-  height: 90px;
-  padding: 0 25px;
+  //height: 90px;
+  height: 4.2vw;
+  //padding: 0 25px;
+  padding: 0 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,20 +25,23 @@ export const Body = styled.div`
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
-    font-size: 22px;
+    //font-size: 22px;
+    font-size: 1vw;
     color: #4a4a4a;
     text-transform: uppercase;
   }
 
   p {
     font-weight: lighter;
-    font-size: 16px;
+    //font-size: 16px;
+    font-size: 0.7vw;
   }
 `;
 
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
-  height: 240px;
+  height: 400px;
+  //height: 240px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;

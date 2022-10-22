@@ -44,11 +44,15 @@ export const Footer = styled.div`
   font-size: 18px;
 `;
 
-export const Name = styled.span`
+export const BaseSpan = styled.span`
+  font-size: 1vw;
+`;
+
+export const Name = styled(BaseSpan)`
   width: 90%;
   margin-bottom: 15px;
 `;
 
-export const Price = styled.span`
+export const Price = styled(BaseSpan)`
   width: 10%;
 `;
