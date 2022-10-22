@@ -11,7 +11,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const BaseSpan = styled.span`
-  font-size: 1vw; //added
+  //font-size: 1vw; //added
   width: 23%;
 `;
 
@@ -29,7 +29,7 @@ export const Quantity = styled(BaseSpan)`
 export const RemoveButton = styled.div`
   padding-left: 12px;
   cursor: pointer;
-  font-size: 1vw; //added
+  //font-size: 1vw; //added
 `;
 
 export const CheckoutItemContainer = styled.div`

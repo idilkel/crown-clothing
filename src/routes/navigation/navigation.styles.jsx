@@ -7,7 +7,7 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  font-size: 1vw; //added
+  //font-size: 1vw; //added
 `;
 
 export const LogoContainer = styled(Link)`

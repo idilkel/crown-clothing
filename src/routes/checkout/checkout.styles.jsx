@@ -14,7 +14,7 @@ export const CheckoutHeader = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
-  font-size: 1vw; //added
+  //font-size: 1vw; //added
 `;
 export const HeaderBlock = styled.div`
   text-transform: capitalize;

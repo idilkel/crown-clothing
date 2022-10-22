@@ -8,8 +8,8 @@ export const CategoryPreviewContainer = styled.div`
 `;
 
 export const Title = styled(Link)`
-  //font-size: 28px;
-  font-size: 1.2vw;
+  font-size: 28px;
+  //font-size: 1.2vw;
   margin-bottom: 25px;
   cursor: pointer;
 `;
