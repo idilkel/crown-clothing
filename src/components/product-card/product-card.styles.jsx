@@ -42,7 +42,8 @@ export const Footer = styled.div`
   height: 5%;
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  //font-size: 18px;
+  font-size: 20px; //added
 `;
 
 export const BaseSpan = styled.span`
