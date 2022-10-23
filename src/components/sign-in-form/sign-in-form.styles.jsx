@@ -14,3 +14,8 @@ export const SignInContainer = styled.div`
     margin: 10px 0;
   }
 `;
+
+export const AlertMessage = styled.div`
+  //added
+  color: red;
+`;

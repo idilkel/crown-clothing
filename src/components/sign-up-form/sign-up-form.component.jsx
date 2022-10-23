@@ -12,7 +12,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import { SignUpContainer } from "./sign-up-form.styles";
+import { SignUpContainer, AlertMessage } from "./sign-up-form.styles";
 import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
@@ -25,7 +25,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
+  const [alertMsg, setAlertMsg] = useState("");
   //console.log(formFields);
 
   //We have the onAuthStateChangedListener instead
@@ -40,7 +40,8 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      alert(`password confirmation doesn't match`);
+      setAlertMsg("password confirmation doesn't match");
+      //alert(`password confirmation doesn't match`);
       return;
     }
     try {
@@ -57,9 +58,11 @@ const SignUpForm = () => {
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
       navigate("/shop");
+      setAlertMsg("");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert(`Can't create a user, email already in use`);
+        setAlertMsg("Can't create a user, email already in use");
+        //alert(`Can't create a user, email already in use`);
       } else {
         console.log("user creation encountered an error" + error);
       }
@@ -113,6 +116,7 @@ const SignUpForm = () => {
         />
         <Button type="submit">Sign Up</Button>
       </form>
+      <AlertMessage>{alertMsg}</AlertMessage>
     </SignUpContainer>
   );
 };

@@ -13,7 +13,11 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
-import { ButtonsContainer, SignInContainer } from "./sign-in-form.styles";
+import {
+  ButtonsContainer,
+  SignInContainer,
+  AlertMessage,
+} from "./sign-in-form.styles";
 import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
@@ -24,6 +28,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const [alertMsg, setAlertMsg] = useState("");
   const navigate = useNavigate();
 
   //console.log(formFields);
@@ -37,6 +42,7 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    setAlertMsg("");
 
     //We have the onAuthStateChangedListener instead
     //No need to destructure the user
@@ -63,13 +69,16 @@ const SignInForm = () => {
 
       resetFormFields();
       navigate("/shop");
+      setAlertMsg("");
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
-          alert("Incorrect password for email. Please try again.");
+          setAlertMsg("Incorrect password for email. Please try again.");
+          //alert("Incorrect password for email. Please try again.");
           break;
         case "auth/user-not-found":
-          alert("No user associated with this email");
+          setAlertMsg("No user associated with this email");
+          //alert("No user associated with this email");
           break;
         default:
           console.log(error);
@@ -115,6 +124,7 @@ const SignInForm = () => {
           </Button>
         </ButtonsContainer>
       </form>
+      <AlertMessage>{alertMsg}</AlertMessage>
     </SignInContainer>
   );
 };

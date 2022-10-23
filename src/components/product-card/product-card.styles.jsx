@@ -46,7 +46,7 @@ export const Footer = styled.div`
 `;
 
 export const BaseSpan = styled.span`
-  font-size: 1vw;
+  //font-size: 1vw;//added
 `;
 
 export const Name = styled(BaseSpan)`
@@ -56,4 +56,11 @@ export const Name = styled(BaseSpan)`
 
 export const Price = styled(BaseSpan)`
   width: 10%;
+`;
+
+export const AlertMessage = styled.div`
+  //added
+  position: absolute;
+  top: 355px;
+  color: red;
 `;
