@@ -45,10 +45,6 @@ const clearCartItem = (cartItems, cartItemToClear) => {
   return cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 };
 
-const clearAllFromCart = (cartItems) => {
-  return [];
-};
-
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -110,8 +106,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setCartItems(clearAllFromCart(cartItems));
-    console.log(cartItems);
+    setCartItems([]);
   };
 
   const value = {
